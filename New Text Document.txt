@@ -1,0 +1,7 @@
+portfolio website ideas. 
+
+layout? design? features? rendering based (let's use webgl for learning purposes).
+
+was thinking of doing a small room render with a camera that moves depending on what the user selects could be a fun way to showcase my webgl abilities. simply showcase experience, skills, education and summary upon entering website. 
+
+"room" (https://skfb.ly/6TAUY) by sandwichsoul is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
