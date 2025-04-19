@@ -18,15 +18,13 @@ function init(){
     camera.lookAt(scene.position);
 	renderer.render(scene, camera);
 
-    function render() {
-        requestAnimationFrame(render)
-        renderer.render(scene, camera);
-    }
-    
     render();
 }
 
-
+function render() {
+    requestAnimationFrame(render)
+    renderer.render(scene, camera);
+}
 
 function onResize() {
     var aspect = window.innerWidth / window.innerHeight;
