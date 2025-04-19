@@ -11,7 +11,6 @@ function init(){
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	container.appendChild(renderer.domElement);
 
-
     var scene = new THREE.Scene();
 
     var aspect = window.innerWidth / window.innerHeight;
