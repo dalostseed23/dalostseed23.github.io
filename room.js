@@ -1,4 +1,4 @@
-let camera, renderer, lights;
+let camera, renderer;
 
 function init(){
     
@@ -10,10 +10,21 @@ function init(){
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	container.appendChild(renderer.domElement);
 
- 
-    var scene = new THREE.Scene();
-}
 
+    var scene = new THREE.Scene();
+
+    var aspect = window.innerWidth / window.innerHeight;
+    camera = new THREE.PerspectiveCamera(60, aspect, 1, 1000);
+    camera.lookAt(scene.position);
+	renderer.render(scene, camera);
+
+    function render() {
+        requestAnimationFrame(render)
+        renderer.render(scene, camera);
+    }
+    
+    render();
+}
 
 
 
