@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 let camera, renderer;
 
 function init(){
