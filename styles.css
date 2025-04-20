@@ -1,0 +1,40 @@
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 265;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #summary-box {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 2em;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 80%;
+    font-family: sans-serif;
+    opacity: 0; 
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 0.15; 
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  #summary-box h1 {
+    margin: 0 0 0.5em;
+    font-size: 2em;
+  }
+  
+  #summary-box p {
+    margin: 0;
+    font-size: 1.2em;
+  }

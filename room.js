@@ -13,11 +13,19 @@ function main(){
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	container.appendChild(renderer.domElement);
 
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMapSoft = true;
+    renderer.shadowMapBias = 0.0039;
+    renderer.shadowMapDarkness = 0.4; 
+    renderer.shadowMapWidth = 1024;
+    renderer.shadowMapHeight = 1024;
+
     scene = new THREE.Scene();
     const axesHelper = new THREE.AxesHelper( 5 );
     scene.add( axesHelper );
     initCamera();
     initLighting()
+
     roomLoader().then(room => {
         room.position.set(0, 0, 0); 
         room.castShadow = true;
@@ -32,21 +40,15 @@ function main(){
         scene.add(room);
     })
 
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMapSoft = true;
-    renderer.shadowMapBias = 0.0039;
-    renderer.shadowMapDarkness = 0.4; 
-    renderer.shadowMapWidth = 1024;
-    renderer.shadowMapHeight = 1024;
-    controls = new OrbitControls(camera, renderer.domElement)
+    //controls = new OrbitControls(camera, renderer.domElement)
     render();
 }
 
 function initCamera(){
     var aspect = window.innerWidth / window.innerHeight;
-    camera = new THREE.PerspectiveCamera(60, aspect, 1, 1000);
-    camera.position.set(6, 2, 2);
-    camera.lookAt(scene.position);
+    camera = new THREE.PerspectiveCamera(40, aspect, 1, 1000);
+    camera.position.set(2.5, 1.5, 0.5);
+    camera.lookAt(1.5, 0.75, -0.5);
 }
 
 function initLighting() {
@@ -72,18 +74,15 @@ function initLighting() {
     
     scene.add(directionalLight);
 
-    const pointLightColor = pointLight.color;
-    const directionalLightColor = directionalLight.color;
     const ambientLightColor = new THREE.Color();
-    ambientLightColor.lerpColors(pointLightColor, directionalLightColor, 0.5);
+    ambientLightColor.lerpColors(pointLight.color, directionalLight.color, 0.5);
     const ambientLight = new THREE.AmbientLight(ambientLightColor, 0.15);
-    //scene.add(ambientLight)
-  
+    scene.add(ambientLight)
 }
 
 function render() {
     requestAnimationFrame(render);
-    controls.update()
+    //controls.update()
     renderer.render(scene, camera);
 }
 
@@ -94,6 +93,7 @@ function onResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
 
 window.onload = main;
 window.addEventListener("resize", onResize, true);
