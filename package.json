@@ -3,12 +3,10 @@
     "three": "^0.175.0"
   },
   "devDependencies": {
-    "ncp": "^2.0.0",
     "vite": "^6.3.2"
   },
   "scripts": {
-    "build": "vite build && npm run copy-models",
-    "copy-models": "npx ncp models dist/models",
+    "build": "vite build",
     "preview": "vite preview --port 8000"
   }
 }
