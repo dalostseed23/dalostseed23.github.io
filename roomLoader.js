@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 export async function roomLoader() {
     const loader = new GLTFLoader();
-    const path = "models/room/scene.gltf";
+    const path = "dalostseed23.github.io/models/room/scene.gltf";
     try {
         const gltf = await new Promise((resolve, reject) => {
             loader.load(path, resolve, undefined, reject);
