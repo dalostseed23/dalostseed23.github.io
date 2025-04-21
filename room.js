@@ -4,6 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 let scene, camera, renderer, controls
 
+let temp = false;
 function main(){
     
     var container = document.createElement("div");
@@ -94,6 +95,33 @@ function onResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+function next(event) {
+    const location = event.target.getAttribute("location");
+    if(location === "bookshelf"){
+        camera.position.set(0.75, 1.5, 0.75);
+        camera.lookAt(0.55, 1.5, -0.5)
+    }
+    else if(location === "laptop"){
+        camera.position.set(2.5, 1.5, 0.5);
+        camera.lookAt(1.5, 0.75, -0.5);
+        temp = false;
+    }
+}
+
+function openNav() {
+    document.getElementById("menu").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("menu").style.width = "0";
+}
+
+document.getElementById("closebtn").addEventListener("click", closeNav);
+document.getElementById("openbtn").addEventListener("click", openNav)
+const buttons = document.querySelectorAll('.option');
+buttons.forEach(button => {
+    button.addEventListener("click", next);
+})
 
 window.onload = main;
 window.addEventListener("resize", onResize, true);

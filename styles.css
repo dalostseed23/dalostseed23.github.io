@@ -1,40 +1,89 @@
-#ui-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 265;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  background-color: #1c1c1c; /* darker background for contrast */
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background: rgba(30, 30, 30, 0.85); /* translucent dark grey */
+  backdrop-filter: blur(10px); /* optional: glass effect */
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.6);
+  overflow-x: hidden;
+  transition: 0.4s ease;
+  padding-top: 60px;
+}
+
+.sidenav button {
+  all: unset; 
+  padding: 12px 20px;
+  font-size: 22px;
+  color: #ccc;
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-left: 3px solid transparent;
+  background: none;
+}
+
+.sidenav button:not(#closebtn):hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #888;
+}
+
+.sidenav #closebtn {
+  all: unset; 
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 35px;
+  color: #bbb;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.sidenav #closebtn:hover {
+  color: white;
   
-  #summary-box {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 2em;
-    border-radius: 16px;
-    text-align: center;
-    max-width: 80%;
-    font-family: sans-serif;
-    opacity: 0; 
-    animation: fadeIn 2s ease forwards;
-    animation-delay: 0.15; 
+}
+
+#openbtn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(100, 100, 100, 0.4);
+  color: white;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  border: none;
+}
+
+#openbtn:hover {
+  background-color: rgba(150, 150, 150, 0.5);
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
   }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+  .sidenav button {
+    font-size: 18px;
   }
-  
-  #summary-box h1 {
-    margin: 0 0 0.5em;
-    font-size: 2em;
-  }
-  
-  #summary-box p {
-    margin: 0;
-    font-size: 1.2em;
-  }
+}
