@@ -1,15 +1,36 @@
 import * as THREE from 'three';
 import { roomLoader } from './roomLoader.js';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
-let scene, camera, renderer, controls
+let  camera, renderer, targetPosition, targetLookAt, Animationflag
+let scene = new THREE.Scene();
+let aspect = window.innerWidth / window.innerHeight;
+const SPEED = 0.005;
 
-let temp = false;
+
 function main(){
-    
+    initRenderer();
+    initCamera();
+    initLighting()
+    roomLoader().then(room => {
+        room.position.set(0, 0, 0); 
+        room.castShadow = true;
+        room.receiveShadow = true;
+        room.traverse((child) => {
+            if (child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+            }
+          });
+        scene.add(room);
+    })
+    render();
+}
+
+function initRenderer(){
     var container = document.createElement("div");
 	document.body.appendChild(container);
-	renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer();
+
 	renderer.setClearColor(new THREE.Color(0x00000000));
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	container.appendChild(renderer.domElement);
@@ -20,36 +41,15 @@ function main(){
     renderer.shadowMapDarkness = 0.4; 
     renderer.shadowMapWidth = 1024;
     renderer.shadowMapHeight = 1024;
-
-    scene = new THREE.Scene();
-    const axesHelper = new THREE.AxesHelper( 5 );
-    scene.add( axesHelper );
-    initCamera();
-    initLighting()
-
-    roomLoader().then(room => {
-        room.position.set(0, 0, 0); 
-        room.castShadow = true;
-        room.receiveShadow = true;
-
-        room.traverse((child) => {
-            if (child.isMesh) {
-              child.castShadow = true;
-              child.receiveShadow = true;
-            }
-          });
-        scene.add(room);
-    })
-
-    //controls = new OrbitControls(camera, renderer.domElement)
-    render();
 }
 
 function initCamera(){
-    var aspect = window.innerWidth / window.innerHeight;
-    camera = new THREE.PerspectiveCamera(40, aspect, 1, 1000);
-    camera.position.set(2.5, 1.5, 0.5);
-    camera.lookAt(1.5, 0.75, -0.5);
+    camera = new THREE.PerspectiveCamera(35, aspect, 0.1, 1000);
+    camera.position.set(0.75, 1.5, 2);
+    camera.lookAt(-2, 1.15, -1);
+
+    targetPosition = new THREE.Vector3(camera.position);
+    targetLookAt = new THREE.Vector3(-2, 1.15, -1);
 }
 
 function initLighting() {
@@ -83,13 +83,27 @@ function initLighting() {
 
 function render() {
     requestAnimationFrame(render);
-    //controls.update()
+    translationAnimation();
     renderer.render(scene, camera);
 }
 
 
+function translationAnimation(){
+    if(Animationflag === true){
+        const direction = new THREE.Vector3().subVectors(targetPosition, camera.position).normalize();
+        const distance = camera.position.distanceTo(targetPosition);
+        camera.position.add(direction.multiplyScalar(SPEED));
+        camera.lookAt(targetLookAt);
+
+        if(distance <= 0.05){
+            Animationflag = false;
+            camera.lookAt(targetLookAt);
+        }
+    }
+}
+
 function onResize() {
-    var aspect = window.innerWidth / window.innerHeight;
+    aspect = window.innerWidth / window.innerHeight;
     camera.aspect = aspect;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -97,14 +111,23 @@ function onResize() {
 
 function next(event) {
     const location = event.target.getAttribute("location");
+    Animationflag = true;
+
     if(location === "bookshelf"){
-        camera.position.set(0.75, 1.5, 0.75);
-        camera.lookAt(0.55, 1.5, -0.5)
+        targetPosition.set(0.75, 1.5, 0.75);
+        targetLookAt.set(0.50, 1.25, -0.5)
     }
     else if(location === "laptop"){
-        camera.position.set(2.5, 1.5, 0.5);
-        camera.lookAt(1.5, 0.75, -0.5);
-        temp = false;
+        targetPosition.set(2.5, 1.5, 0.5);
+        targetLookAt.set(1.5, 0.75, -0.5);
+    }
+    else if(location === "guitar"){
+        targetPosition.set(0.75, 1.5, 2);
+        targetLookAt.set(-2, 1.15, -1);
+    }
+    else if(location === "lamp"){
+        targetPosition.set(2.0, 1.0, 1.5);
+        targetLookAt.set(-2, 0.25, -1);
     }
 }
 
