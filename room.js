@@ -177,7 +177,7 @@ function createTextBox(tab) {
             <h1>Skills</h1>
             <ul>
             <li><strong>Programming Languages:</strong> C++, C, Java, Python, JavaScript, SQL, HTML, CSS, Go</li>
-            <li><strong>Technologies:</strong> Git, Vite.js, Vulkan, OpenGL, OpenCV, PyTorch</li>
+            <li><strong>Technologies:</strong> Git, Vite.js, Vulkan, OpenGL, OpenCV, Scikit-Learn, PyTorch</li>
             <li><strong>Tools:</strong> Visual Studio, VSCode, Jupyter, MySQL</li>
             <li><strong>Operating Systems:</strong> Windows, Linux, macOS</li>
             <li><strong>Spoken Languages:</strong> English, French, Spanish</li>
