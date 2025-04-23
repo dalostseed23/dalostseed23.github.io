@@ -199,7 +199,7 @@ function deleteTextBox() {
         if (ui && ui.parentNode) {
             ui.parentNode.removeChild(ui);
         }
-    }, 250); 
+    }, 500); 
 }
 
 function onResize() {
