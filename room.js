@@ -128,8 +128,9 @@ function createTextBox(tab) {
     switch(tab){
         case "about":
             textBox.innerHTML = `<div class="intro">
-                    <h1>Sebastian Del Pino Mendivil</h1>
-                    <p>Motivated part-time computer science student seeking a full-time software development role to gain industry experience and grow technical skills. Open to working across all areas of software, with a personal interest in computer graphics and vision.</p>
+                <h1>Sebastian Del Pino Mendivil</h1>
+                <img src="/pictures/20240807_173401.jpg" alt="Photo of Sebastian Del Pino Mendivil" class="profile">                
+                <p>Motivated part-time computer science student seeking a full-time software development role to gain industry experience and grow technical skills. Open to working across all areas of software, with a personal interest in computer graphics and vision.</p>
                 </div>
                 <div class="video">
                     <h2>Current Favorite :D</h2>
@@ -192,7 +193,7 @@ function createTextBox(tab) {
     setTimeout(() => {
         textBox.style.opacity = "1";
         textBox.style.transform = "translateY(0)";
-    }, 100);
+    }, 200);
 }
 
 function deleteTextBox() {

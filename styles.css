@@ -105,7 +105,14 @@ body {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1s ease, transform 1s ease;
-  z-index: 999;
+}
+
+.profile{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .intro h1 {
@@ -120,6 +127,18 @@ body {
   line-height: 1.5;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.video iframe {
+  width: 80%;
+  height: 300px; 
+  border: none;
+}
+
+.video h2 {
+  color: #fff;
+  margin-top: 35px;
+  margin-bottom: 10px;
 }
 
 .education {
@@ -206,22 +225,16 @@ body {
   color: #fff; 
 }
 
-.video iframe {
-  width: 85%;
-  height: 300px; 
-  border: none;
-}
-
-.video h2 {
-  color: #fff;
-  margin-bottom: 10px;
-}
-
 @media screen and (max-width: 768px) {
   .intro h1 {
     font-size: 32px;
   }
 
+  .profile{
+    width: 100%;
+    height: auto;
+  }
+  
   .intro p {
     font-size: 16px;
     max-width: 95%;
