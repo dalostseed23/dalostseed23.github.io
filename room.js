@@ -128,9 +128,13 @@ function createTextBox(tab) {
     switch(tab){
         case "about":
             textBox.innerHTML = `<div class="intro">
-            <h1>Sebastian Del Pino Mendivil</h1>
-            <p>Motivated part-time computer science student seeking a full-time software development role to gain industry experience and grow technical skills. Open to working across all areas of software, with a personal interest in computer graphics and vision.</p>
-            </div>`;
+                    <h1>Sebastian Del Pino Mendivil</h1>
+                    <p>Motivated part-time computer science student seeking a full-time software development role to gain industry experience and grow technical skills. Open to working across all areas of software, with a personal interest in computer graphics and vision.</p>
+                </div>
+                <div class="video">
+                    <h2>Current Favorite :D</h2>
+                    <iframe src="https://www.youtube.com/embed/Kc9_aTUFZCE?si=HTktGyjKhTK36cLO" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>`;
             break;
         case "academics": textBox.innerHTML = `<div class="education">
             <h1>Education</h1>
