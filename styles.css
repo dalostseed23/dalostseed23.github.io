@@ -79,15 +79,6 @@ body {
   background-color: rgba(150, 150, 150, 0.5);
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav button {
-    font-size: 18px;
-  }
-}
-
 #ui {
   position: absolute;
   top: 0;
@@ -216,4 +207,48 @@ body {
 
 .skills ul li strong {
   color: #fff; 
+}
+
+@media screen and (max-width: 768px) {
+  .intro h1 {
+    font-size: 32px;
+  }
+
+  .intro p {
+    font-size: 16px;
+    max-width: 95%;
+  }
+
+  .education h1,
+  .experience h1,
+  .skills h1 {
+    font-size: 30px;
+  }
+
+  .school p,
+  .job p,
+  .job ul li,
+  .skills ul li {
+    font-size: 16px;
+  }
+
+  #textBox {
+    max-width: 90%;
+    padding: 1.5em 2em;
+  }
+
+  .job {
+    margin-bottom: 40px;
+  }
+
+  #openbtn {
+    height: 45px;
+    width: 45px;
+    font-size: 24px;
+  }
+
+  .sidenav button {
+    font-size: 20px;
+    padding: 10px 16px;
+  }
 }
