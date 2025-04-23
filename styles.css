@@ -87,3 +87,133 @@ body {
     font-size: 18px;
   }
 }
+
+#ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+#textBox {
+  background: rgba(30, 30, 30, 0.85);
+  color: #ddd;
+  padding: 2em 3em;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 30%;
+  font-family: "Lato", sans-serif;
+  pointer-events: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro {
+  padding: 20px;
+}
+
+.intro h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.intro p {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.5;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.education {
+  padding: 20px;
+}
+
+.education h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.school {
+  margin-bottom: 30px;
+}
+
+.school p {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.school .date {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.experience {
+  padding: 20px;
+}
+
+.experience h1{
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.job {
+  margin-bottom: 60px; 
+}
+
+.job p {
+  margin: 0;
+  font-size: 18px;
+  color: #eee;
+}
+
+.job .date {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.job ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+
+.skills {
+  padding: 20px;
+}
+
+.skills h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.skills ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills ul li {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.skills ul li strong {
+  color: #fff; 
+}
