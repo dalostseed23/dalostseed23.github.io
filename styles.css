@@ -49,6 +49,7 @@ body {
   color: #bbb;
   cursor: pointer;
   transition: 0.3s ease;
+  z-index: 1000;
 }
 
 .sidenav #closebtn:hover {
@@ -229,7 +230,7 @@ body {
   .job p,
   .job ul li,
   .skills ul li {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   #textBox {
