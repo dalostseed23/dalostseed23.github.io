@@ -6,7 +6,6 @@ let scene = new THREE.Scene();
 let aspect = window.innerWidth / window.innerHeight;
 const SPEED = 0.0075;
 
-
 function main(){
     initRenderer();
     initCamera();
@@ -119,8 +118,6 @@ function translationAnimation(){
     }
 }
 
-
-
 function createTextBox(tab) {
     ui = document.createElement("div");
     ui.id = "ui";
@@ -204,7 +201,6 @@ function deleteTextBox() {
         }
     }, 250); 
 }
-
 
 function onResize() {
     aspect = window.innerWidth / window.innerHeight;
