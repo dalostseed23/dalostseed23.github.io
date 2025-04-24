@@ -253,6 +253,12 @@ body {
     font-size: 14px;
   }
 
+  #ui {
+    max-width: 80%;
+    max-height: 80%;
+    padding: 1.5em 2em;
+  }
+
   #textBox {
     max-width: 90%;
     padding: 1.5em 2em;
