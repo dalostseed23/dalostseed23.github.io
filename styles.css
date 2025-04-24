@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #1c1c1c; 
 }
 
@@ -197,7 +197,6 @@ body {
   text-align: justify;
 }
 
-
 .skills {
   padding: 20px;
 }
@@ -226,41 +225,44 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .intro h1 {
-    font-size: 18px;
-  }
 
   .profile{
-    width: 80%;
-    height: 80%;
+    width: 30%;
+    height: 25%;
+    margin-bottom: 10px;
   }
   
   .intro p {
-    font-size: 8px;
+    font-size: 12px;
     max-width: 95%;
   }
 
+  .intro h1,
   .education h1,
   .experience h1,
   .skills h1 {
-    font-size: 15px;
+    font-size: 30px;
+    margin-bottom: 10px;
   }
 
   .school p,
   .job p,
-  .job ul li,
   .skills ul li {
-    font-size: 7px;
+    font-size: 14px;
   }
 
-  #ui {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+  .job .date,
+  .education .date{
+    font-size: 12px;
+  }
+
+  .job ul li{
+    font-size: 11px;
+    margin-bottom: 5px;
   }
 
   #textBox {
-    max-width: 90%;
+    max-width: 80%;
     padding: 1.5em 2em;
   }
 
@@ -273,15 +275,18 @@ body {
     width: 45px;
     font-size: 24px;
   }
-
+  .video h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   .sidenav button {
     font-size: 20px;
     padding: 10px 16px;
   }
   
   .video iframe {
-    width: 100%;
-    height: auto;
+    width: 75%;
+    height: 75%;
     aspect-ratio: 16 / 9;
   }
 }
